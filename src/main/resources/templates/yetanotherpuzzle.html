@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>puzzle</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>think memerent!</h1>
+<h2 th:text="${message}"></h2>
+<p>
+    <audio controls="controls">
+        <source src="/audio/song3.mp3" type="audio/mpeg"/>
+        Your browser does not support the audio element.
+    </audio>
+</p>
+<p>
+    <audio controls="controls">
+        <source src="/audio/song5.mp3" type="audio/mpeg"/>
+        Your browser does not support the audio element.
+    </audio>
+</p>
+<p>
+    <img src="/audio/img2.jpg" alt="Estornudó muy fuerte">
+</p>
+
+<form action="#" th:action="@{/yetanotherpuzzle}" th:object="${puzzle}" method="post">
+    <input type="text" th:field="*{word1}" />
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
