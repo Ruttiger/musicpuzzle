@@ -28,6 +28,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/puzzle3success")
                 .hasAnyAuthority("ALLCLEARED");
 
+        http
+                .authorizeRequests()
+                .antMatchers("/puzzle3")
+                .permitAll();
+        http
+                .authorizeRequests()
+                .antMatchers("/puzzle4")
+                .permitAll();
     }
 
 //    @Bean

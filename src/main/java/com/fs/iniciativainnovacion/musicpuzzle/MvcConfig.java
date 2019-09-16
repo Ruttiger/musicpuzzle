@@ -18,6 +18,8 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/puzzle1success").setViewName("puzzle1success");
         registry.addViewController("/puzzle2success").setViewName("puzzle2success");
         registry.addViewController("/puzzle3success").setViewName("puzzle3success");
+        registry.addViewController("/puzzle3").setViewName("puzzle3");
+        registry.addViewController("/puzzle4").setViewName("puzzle4");
     }
 
     @Override

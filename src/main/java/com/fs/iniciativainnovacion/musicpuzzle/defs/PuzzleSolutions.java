@@ -2,8 +2,7 @@ package com.fs.iniciativainnovacion.musicpuzzle.defs;
 
 public class PuzzleSolutions {
 
-    public static final String PUZZLE_1_WORD_1 = "wanna";
-    public static final String PUZZLE_1_WORD_2 = "cry";
+    public static final String PUZZLE_1_WORD_1 = "wannacry";
     public static final String PUZZLE_1_GREETING = "ENHORABUENA! ERA WANNACRY, EL LETAL RANSOMWARE!";
 
     public static final String PUZZLE_2_WORD_1 = "MEMZ";

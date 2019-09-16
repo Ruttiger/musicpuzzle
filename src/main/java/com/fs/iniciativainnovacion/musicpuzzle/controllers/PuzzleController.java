@@ -19,6 +19,18 @@ import java.util.List;
 @Controller
 public class PuzzleController {
 
+    @GetMapping("/puzzle3")
+    public String puzzle3(Model model) {
+        model.addAttribute("puzzle3", new Puzzle());
+        return "puzzle3";
+    }
+
+    @GetMapping("/puzzle4")
+    public String puzzle4(Model model) {
+        model.addAttribute("puzzle4", new Puzzle());
+        return "puzzle4";
+    }
+
     @GetMapping("/puzzle")
     public String puzzle(Model model) {
         model.addAttribute("puzzle", new Puzzle());
@@ -39,8 +51,7 @@ public class PuzzleController {
 
     @PostMapping("/puzzle")
     public RedirectView puzzleSubmit(@ModelAttribute Puzzle puzzle, Model model) {
-        if(PuzzleSolutions.PUZZLE_1_WORD_1.equalsIgnoreCase(puzzle.getWord1())
-                && PuzzleSolutions.PUZZLE_1_WORD_2.equalsIgnoreCase(puzzle.getWord2())){
+        if(PuzzleSolutions.PUZZLE_1_WORD_1.equalsIgnoreCase(puzzle.getWord1())){
 
             String sessionId = RequestContextHolder.currentRequestAttributes().getSessionId();
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
