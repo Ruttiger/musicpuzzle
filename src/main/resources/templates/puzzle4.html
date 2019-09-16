@@ -1,0 +1,250 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+
+<title>Setec Gastronomy</title>
+<style>
+BODY { 
+   background: #41b8e1;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.tile1, .tile2, .tile3, .tile4, .tile5, .tile6, .tile7, .tile8, .tile9 {
+  display: table-cell;
+  width: 120px;
+  height: 120px;
+  border: 4px solid white;
+  background: url(/pictures/bh.png);
+  cursor: pointer;
+}
+
+.tile1 {background-position: left top;}
+.tile2 {background-position: center top;}
+.tile3 {background-position: right top;}
+.tile4 {background-position: left center;}
+.tile5 {background-position: center center;}
+.tile6 {background-position: right center;}
+.tile7 {background-position: left bottom;}
+.tile8 {background-position: center bottom;}
+.tile9 {background: white; cursor: default;}
+
+input {
+
+  font-family: monospace;
+  
+}
+label {
+  display: block;
+}
+div {
+  margin: 0 0 1rem 0;
+}
+
+.shell {
+  position: relative;
+  line-height: 1; }
+  .shell span {
+    position: absolute;
+    left: 3px;
+    top: 1px;
+    color: white;
+    font-color: white !important;
+    pointer-events: none;
+    z-index: -1; }
+    .shell span i {
+      font-style: normal;
+      /* any of these 3 will work */
+      color: transparent;
+      opacity: 0;
+      visibility: hidden; }
+
+input {
+  border: none; 
+  border-width: 0; 
+  box-shadow: none;
+}
+
+input.middle:focus {
+    outline-width: 0;
+}
+
+input:focus, textarea {
+    outline: none !important;
+}
+
+input.masked,
+.shell span {
+  font-size: 36px;
+  font-family: monospace;
+  padding-right: 10px;
+  background-color: transparent;
+  text-transform: uppercase; }
+
+  .inputmask .masked{
+    padding: 0;
+    width: 250;
+    align: center;
+  }
+
+  .inputmask #responseMask{
+    white-space: nowrap;
+    display: inline-block;
+    padding: 0;
+  }
+
+  .button {
+  background-color: #0b2c46;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+
+<p>
+<center>
+  <h2><font color="white">SETEC ASTRONOMY</font></h2>
+  <table style="width:0%;padding: 15px">
+  <tr>
+    <td valign="middle" align="center"><img width="100%" src="/pictures/1.png"></td>
+    <td valign="middle" align="center"><img width="100%" src="/pictures/2.png"></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><img width="100%" src="/pictures/3.png"></td>
+    <td valign="middle" align="center"><img width="100%" alt="антивирус" src="/pictures/4.png"></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><img width="100%" src="/pictures/5.png"></td>
+    <td valign="middle" align="center"><img width="100%" src="/pictures/6.png"></td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center"><img width="100%" src="/pictures/7.png"></td>
+    <td valign="middle" align="center"><img width="100%" src="/pictures/8.png"></td>
+  </tr>
+</table>
+<p>
+  <form> 
+  <div style="padding-left: 30px;padding-bottom: 40px" class="inputmask">
+    <input autofocus width="400px" placeholder="---- ----" pattern="\w\w\w\w \w\w\w\w" class="masked" 
+        data-charset="____ ____" id="response0" type="text" 
+        title="Rellena los huecos" />
+  </div>
+</form>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/masking-input.js" data-autoinit="true"></script>
+<p>
+<p>
+<p>
+<p><p>
+<p><p>
+<p>
+<p>
+</center>
+
+
+<center><div id="table" style="display: table;">
+   <div id="row1" style="display: table-row;">
+      <div id="cell11" class="tile1" onClick="clickTile(1,1);"></div>
+      <div id="cell12" class="tile2" onClick="clickTile(1,2);"></div>
+      <div id="cell13" class="tile3" onClick="clickTile(1,3);"></div>
+   </div>
+   <div id="row2" style="display: table-row;">
+      <div id="cell21" class="tile4" onClick="clickTile(2,1);"></div>
+      <div id="cell22" class="tile5" onClick="clickTile(2,2);"></div>
+      <div id="cell23" class="tile6" onClick="clickTile(2,3);"></div>
+   </div>
+   <div id="row3" style="display: table-row;">
+      <div id="cell31" class="tile7" onClick="clickTile(3,1);"></div>
+      <div id="cell32" class="tile8" onClick="clickTile(3,2);"></div>
+      <div id="cell33" class="tile9" onClick="clickTile(3,3);"></div>
+   </div>
+</div>
+<p>
+  <button onClick="shuffle();">Reset</button>
+
+  <p>
+<p>
+  <form> 
+  <div style="padding-left: 30px;" class="inputmask">
+    <input autofocus width="400px" placeholder="----- ---" pattern="\w\w\w\w\w \w\w\w" class="masked" 
+        data-charset="_____ ___" id="response" type="text" 
+        title="Rellena los huecos" />
+  </div>
+  <input class="button" type="submit" value="Enviar solución">
+  </form> 
+</center>
+
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/masking-input.js" data-autoinit="true"></script>
+
+<script id="rendered-js">
+
+(function(){
+ shuffle();
+})();
+      
+function swapTiles(cell1, cell2) {
+  var temp = document.getElementById(cell1).className;
+  document.getElementById(cell1).className = document.getElementById(cell2).className;
+  document.getElementById(cell2).className = temp;
+}
+
+function shuffle() {
+  //Use nested loops to access each cell of the 3x3 grid
+  for (var row = 1; row <= 3; row++) {
+    for (var column = 1; column <= 3; column++) { 
+
+      var row2 = Math.floor(Math.random() * 3 + 1); //Pick a random row from 1 to 3
+      var column2 = Math.floor(Math.random() * 3 + 1); //Pick a random column from 1 to 3
+
+      swapTiles("cell" + row + column, "cell" + row2 + column2); //Swap the look & feel of both cells
+    };
+   };
+}
+
+function clickTile(row, column) {
+  var cell = document.getElementById("cell" + row + column);
+  var tile = cell.className;
+  if (tile != "tile9") {
+    //Checking if white tile on the right
+    if (column < 3) {
+      if (document.getElementById("cell" + row + (column + 1)).className == "tile9") {
+        swapTiles("cell" + row + column, "cell" + row + (column + 1));
+        return;
+      }
+    }
+    //Checking if white tile on the left
+    if (column > 1) {
+      if (document.getElementById("cell" + row + (column - 1)).className == "tile9") {
+        swapTiles("cell" + row + column, "cell" + row + (column - 1));
+        return;
+      }
+    }
+    //Checking if white tile is above
+    if (row > 1) {
+      if (document.getElementById("cell" + (row - 1) + column).className == "tile9") {
+        swapTiles("cell" + row + column, "cell" + (row - 1) + column);
+        return;
+      }
+    }
+    //Checking if white tile is below
+    if (row < 3) {
+      if (document.getElementById("cell" + (row + 1) + column).className == "tile9") {
+        swapTiles("cell" + row + column, "cell" + (row + 1) + column);
+        return;
+      }
+    }
+  }
+
+}
+      
+    </script>
+</body>
+</html>
