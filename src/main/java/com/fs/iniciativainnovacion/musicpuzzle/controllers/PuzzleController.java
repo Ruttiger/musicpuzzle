@@ -19,11 +19,7 @@ import java.util.List;
 @Controller
 public class PuzzleController {
 
-    @GetMapping("/puzzle3")
-    public String puzzle3(Model model) {
-        model.addAttribute("puzzle3", new Puzzle());
-        return "puzzle3";
-    }
+
 
     @GetMapping("/puzzle4")
     public String puzzle4(Model model) {
@@ -148,5 +144,106 @@ public class PuzzleController {
 
         return "puzzle3success";
     }
+
+    @PostMapping("/puzzlenacho1")
+    public RedirectView puzzlenacho1Submit(@ModelAttribute Puzzle puzzle, Model model) {
+        if(PuzzleSolutions.PUZZLE_NACHO_1_WORD_1.equalsIgnoreCase(puzzle.getWord1())){
+
+            String sessionId = RequestContextHolder.currentRequestAttributes().getSessionId();
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+            Collection<SimpleGrantedAuthority> oldAuthorities = (Collection<SimpleGrantedAuthority>)SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+            SimpleGrantedAuthority authority = new SimpleGrantedAuthority("PUZZLE2");
+            List<SimpleGrantedAuthority> updatedAuthorities = new ArrayList<SimpleGrantedAuthority>();
+            updatedAuthorities.add(authority);
+            updatedAuthorities.addAll(oldAuthorities);
+
+            SecurityContextHolder.getContext().setAuthentication(
+                    new UsernamePasswordAuthenticationToken(
+                            SecurityContextHolder.getContext().getAuthentication().getPrincipal(),
+                            SecurityContextHolder.getContext().getAuthentication().getCredentials(),
+                            updatedAuthorities)
+            );
+            return new RedirectView("puzzlenacho2");
+        } else{
+            model.addAttribute("message","oops! Parece que esa no era la solución. Inténtalo de nuevo!");
+            return new RedirectView("puzzlenacho1");
+        }
+    }
+
+    @PostMapping("/puzzlenacho2")
+    public RedirectView puzzlenacho2Submit(@ModelAttribute("puzzle") Puzzle puzzle, Model model) {
+        if(PuzzleSolutions.PUZZLE_NACHO_2_WORD_1.equalsIgnoreCase(puzzle.getWord1()) &&
+                PuzzleSolutions.PUZZLE_NACHO_2_WORD_2.equalsIgnoreCase(puzzle.getWord2())){
+
+            String sessionId = RequestContextHolder.currentRequestAttributes().getSessionId();
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+            Collection<SimpleGrantedAuthority> oldAuthorities = (Collection<SimpleGrantedAuthority>)SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+            SimpleGrantedAuthority authority = new SimpleGrantedAuthority("PUZZLE2");
+            List<SimpleGrantedAuthority> updatedAuthorities = new ArrayList<SimpleGrantedAuthority>();
+            updatedAuthorities.add(authority);
+            updatedAuthorities.addAll(oldAuthorities);
+
+            SecurityContextHolder.getContext().setAuthentication(
+                    new UsernamePasswordAuthenticationToken(
+                            SecurityContextHolder.getContext().getAuthentication().getPrincipal(),
+                            SecurityContextHolder.getContext().getAuthentication().getCredentials(),
+                            updatedAuthorities)
+            );
+            return new RedirectView("puzzlenacho3");
+        } else{
+            model.addAttribute("message","oops! Parece que esa no era la solución. Inténtalo de nuevo!");
+            return new RedirectView("puzzlenacho2");
+        }
+    }
+
+    @PostMapping("/puzzlenacho3")
+    public RedirectView puzzlenacho3Submit(@ModelAttribute("puzzle") Puzzle puzzle, Model model) {
+        if(PuzzleSolutions.PUZZLE_NACHO_3_WORD_1.equalsIgnoreCase(puzzle.getWord1())){
+
+            String sessionId = RequestContextHolder.currentRequestAttributes().getSessionId();
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+            Collection<SimpleGrantedAuthority> oldAuthorities = (Collection<SimpleGrantedAuthority>)SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+            SimpleGrantedAuthority authority = new SimpleGrantedAuthority("PUZZLE3");
+            List<SimpleGrantedAuthority> updatedAuthorities = new ArrayList<SimpleGrantedAuthority>();
+            updatedAuthorities.add(authority);
+            updatedAuthorities.addAll(oldAuthorities);
+
+            SecurityContextHolder.getContext().setAuthentication(
+                    new UsernamePasswordAuthenticationToken(
+                            SecurityContextHolder.getContext().getAuthentication().getPrincipal(),
+                            SecurityContextHolder.getContext().getAuthentication().getCredentials(),
+                            updatedAuthorities)
+            );
+            return new RedirectView("successnacho");
+        } else{
+            model.addAttribute("message","oops! Parece que esa no era la solución. Inténtalo de nuevo!");
+            return new RedirectView("puzzlenacho3");
+        }
+    }
+
+    @GetMapping("/puzzlenacho1")
+    public String puzzlenacho1(Model model) {
+        model.addAttribute("puzzle", new Puzzle());
+        return "puzzlenacho1";
+    }
+
+    @GetMapping("/puzzlenacho2")
+    public String puzzlenacho2(Model model) {
+        model.addAttribute("puzzle", new Puzzle());
+        return "puzzlenacho2";
+    }
+
+    @GetMapping("/puzzlenacho3")
+    public String puzzlenacho3(Model model) {
+        model.addAttribute("puzzle", new Puzzle());
+        return "puzzlenacho3";
+    }
+
+    @GetMapping("/successnacho")
+    public String successnacho(Model model) {
+        model.addAttribute("puzzle", new Puzzle());
+        return "successnacho";
+    }
+
 
 }

@@ -109,17 +109,17 @@
 </head>
 <body>
 <center>
-    <h1>lo siguiente no es una pista</h1>
-    <h2>lo anterior es incorrecto</h2>
+    <h1>si lo siguiente no es un troyano...</h1>
+    <h2>¿qué es? 'no ve'</h2>
     <p>
-        <video controls>
-            <source src="/audio/audio6.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+        <video controls="controls">
+            <source src="/audio/song6.mp4" type="video/mp4"/>
+            Your browser does not support the audio element.
         </video>
     </p>
     <form class="inputmask" action="#" th:action="@{/isthislastpuzzle}" th:object="${puzzle}" method="post">
         <div class="inputmask">
-            <input autofocus width="400px" placeholder="--- ----------- -------" pattern="\w\w\w \w\w\w\w\w\w\w\w\w\w\w \w\w\w\w\w\w\w" class="masked"
+            <input autofocus width="400px" placeholder="--- --V-------- -----T-" pattern="\w\w\w \w\w\w\w\w\w\w\w\w\w\w \w\w\w\w\w\w\w" class="masked"
                    data-charset="___ ___________ _______" id="response" type="text" th:field="*{word1}"
                    title="Rellena los huecos" />
         </div>

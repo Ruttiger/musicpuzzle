@@ -30,11 +30,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                .antMatchers("/puzzle3")
+                .antMatchers("/puzzlenacho1")
                 .permitAll();
         http
                 .authorizeRequests()
-                .antMatchers("/puzzle4")
+                .antMatchers("/puzzlenacho2")
+                .permitAll();
+        http
+                .authorizeRequests()
+                .antMatchers("/puzzlenacho3")
                 .permitAll();
     }
 

@@ -5,7 +5,6 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.util.concurrent.TimeUnit;
 
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
@@ -18,8 +17,9 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/puzzle1success").setViewName("puzzle1success");
         registry.addViewController("/puzzle2success").setViewName("puzzle2success");
         registry.addViewController("/puzzle3success").setViewName("puzzle3success");
-        registry.addViewController("/puzzle3").setViewName("puzzle3");
-        registry.addViewController("/puzzle4").setViewName("puzzle4");
+        registry.addViewController("/puzzlenacho1").setViewName("puzzlenacho1");
+        registry.addViewController("/puzzlenacho2").setViewName("puzzlenacho2");
+        registry.addViewController("/puzzlenacho3").setViewName("puzzlenacho3");
     }
 
     @Override

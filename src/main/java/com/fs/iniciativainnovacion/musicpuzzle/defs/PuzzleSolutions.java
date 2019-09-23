@@ -14,4 +14,13 @@ public class PuzzleSolutions {
             "\"El Conflicto de los Marx\"!\n" +
             "Por favor, envía tus soluciones a iniciativainnovacion@futurespace.es, incluyendo el nombre de tu equipo.";
 
+
+    public static final String PUZZLE_NACHO_1_WORD_1 = "OPERATION OLYMPIC GAMES";
+
+    public static final String PUZZLE_NACHO_2_WORD_1 = "BALK CHAT";
+    public static final String PUZZLE_NACHO_2_WORD_2 = "BLACK HAT";
+
+    public static final String PUZZLE_NACHO_3_WORD_1 = "ACCESS DECODE DEFACE";
+
+
 }
