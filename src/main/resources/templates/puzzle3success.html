@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>puzzle</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        BODY {
+   background: #41b8e1;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.tile1, .tile2, .tile3, .tile4, .tile5, .tile6, .tile7, .tile8, .tile9 {
+  display: table-cell;
+  width: 120px;
+  height: 120px;
+  border: 4px solid white;
+  background: url(/pictures/bh.png);
+  cursor: pointer;
+}
+
+.tile1 {background-position: left top;}
+.tile2 {background-position: center top;}
+.tile3 {background-position: right top;}
+.tile4 {background-position: left center;}
+.tile5 {background-position: center center;}
+.tile6 {background-position: right center;}
+.tile7 {background-position: left bottom;}
+.tile8 {background-position: center bottom;}
+.tile9 {background: white; cursor: default;}
+
+input {
+
+  font-family: monospace;
+
+}
+label {
+  display: block;
+}
+div {
+  margin: 0 0 1rem 0;
+}
+
+.shell {
+  position: relative;
+  line-height: 1; }
+  .shell span {
+    position: absolute;
+    left: 3px;
+    top: 1px;
+    color: white;
+    font-color: white !important;
+    pointer-events: none;
+    z-index: -1; }
+    .shell span i {
+      font-style: normal;
+      /* any of these 3 will work */
+      color: transparent;
+      opacity: 0;
+      visibility: hidden; }
+
+input {
+  border: none;
+  border-width: 0;
+  box-shadow: none;
+}
+
+input.middle:focus {
+    outline-width: 0;
+}
+
+input:focus, textarea {
+    outline: none !important;
+}
+
+input.masked,
+.shell span {
+  font-size: 36px;
+  font-family: monospace;
+  padding-right: 10px;
+  background-color: transparent;
+  text-transform: uppercase; }
+
+  .inputmask .masked{
+    padding: 0;
+    width: 250;
+    align: center;
+  }
+
+  .inputmask #responseMask{
+    white-space: nowrap;
+    display: inline-block;
+    padding: 0;
+  }
+
+  .button {
+  background-color: #0b2c46;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+<p th:text="${greetingtext}" />
+<p>
+    <img src="http://www.lacabecita.com/wp-content/uploads/Marx.png" alt="Marx">
+</p>
+</body>
+</html>

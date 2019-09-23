@@ -108,12 +108,45 @@ public class PuzzleController {
         }
     }
 
+    @PostMapping("/isthislastpuzzle")
+    public RedirectView isthislastpuzzleSubmit(@ModelAttribute Puzzle puzzle, Model model) {
+        if(PuzzleSolutions.PUZZLE_3_WORD_1.equalsIgnoreCase(puzzle.getWord1())){
+
+            String sessionId = RequestContextHolder.currentRequestAttributes().getSessionId();
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+            Collection<SimpleGrantedAuthority> oldAuthorities = (Collection<SimpleGrantedAuthority>)SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+            SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ALLCLEARED");
+            List<SimpleGrantedAuthority> updatedAuthorities = new ArrayList<SimpleGrantedAuthority>();
+            updatedAuthorities.add(authority);
+            updatedAuthorities.addAll(oldAuthorities);
+
+            SecurityContextHolder.getContext().setAuthentication(
+                    new UsernamePasswordAuthenticationToken(
+                            SecurityContextHolder.getContext().getAuthentication().getPrincipal(),
+                            SecurityContextHolder.getContext().getAuthentication().getCredentials(),
+                            updatedAuthorities)
+            );
+            return new RedirectView("puzzle3success");
+        } else{
+            model.addAttribute("message","oops! Parece que esa no era la solución. Inténtalo de nuevo! Psst! Piensa en el Gordo de Navidad!");
+            return new RedirectView("isthislastpuzzle");
+        }
+    }
+
     @GetMapping("/puzzle2success")
     public String puzzle2success(Model model) {
 
         model.addAttribute("greetingtext", PuzzleSolutions.PUZZLE_2_GREETING);
 
         return "puzzle2success";
+    }
+
+    @GetMapping("/puzzle3success")
+    public String puzzle3success(Model model) {
+
+        model.addAttribute("greetingtext", PuzzleSolutions.PUZZLE_3_GREETING);
+
+        return "puzzle3success";
     }
 
 }
